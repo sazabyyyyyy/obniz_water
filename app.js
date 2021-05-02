@@ -17,12 +17,12 @@ let config = {
 }
 
 // called on online
-obniz.onconnect = async function() {
-  var waterLevelSensor = obniz.wired("Grove_WaterLevelSensor", { gnd:0 , vcc:1 , sda:2 , scl:3 });
-  waterLevelSensor.onchange = function(value) {
+obniz.onconnect = async ()=> {
+  const waterLevelSensor = obniz.wired("Grove_WaterLevelSensor", { gnd:0 , vcc:1 , sda:2 , scl:3 });
+  waterLevelSensor.onchange = (value)=> {
     console.log(value);  // 0 mm - 100 mm
     if (value > 60) {
-      axios.request(config).then(res=>console.log("success"))
+      axios.request(config).then(res=>console.log(res))
     }
      }
 };
