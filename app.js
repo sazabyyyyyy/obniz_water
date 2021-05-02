@@ -3,7 +3,7 @@ import qs from "querystring";
 import axios from "axios"
 import  {LINE_API,OBNIZ_ID} from "./const.js"
 
-var obniz = new Obniz(OBNIZ_ID);
+const obniz = new Obniz(OBNIZ_ID);
 const LINE_NOTIFY_API_URL = 'https://notify-api.line.me/api/notify';
 const LINE_NOTIFY_TOKEN = LINE_API;
 let config = {
