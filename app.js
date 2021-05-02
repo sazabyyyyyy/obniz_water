@@ -1,12 +1,10 @@
 import Obniz from "obniz";
 import qs from "querystring";
 import axios from "axios"
-import  {LINE_API,OBNIZ_ID} from "./const.js"
+import  {LINE_NOTIFY_API_URL,LINE_NOTIFY_TOKEN,OBNIZ_ID} from "./const.js"
 
 const obniz = new Obniz(OBNIZ_ID);
-const LINE_NOTIFY_API_URL = 'https://notify-api.line.me/api/notify';
-const LINE_NOTIFY_TOKEN = LINE_API;
-let config = {
+const config = {
   url: LINE_NOTIFY_API_URL,
   method: 'post',
   headers: {
@@ -24,5 +22,5 @@ obniz.onconnect = async ()=> {
     if (value > 60) {
       axios.request(config).then(res=>console.log(res))
     }
-     }
+  }
 };
