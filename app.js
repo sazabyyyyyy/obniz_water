@@ -1,10 +1,11 @@
 import Obniz from "obniz";
 import qs from "querystring";
 import axios from "axios"
+import  {LINE_API,OBNIZ_ID} from "./const.js"
 
-var obniz = new Obniz("0000-0000");//obnizID入力
+var obniz = new Obniz(OBNIZ_ID);
 const LINE_NOTIFY_API_URL = 'https://notify-api.line.me/api/notify';
-const LINE_NOTIFY_TOKEN = 'hoge';//LINE トークン
+const LINE_NOTIFY_TOKEN = LINE_API;
 let config = {
   url: LINE_NOTIFY_API_URL,
   method: 'post',
@@ -24,5 +25,4 @@ obniz.onconnect = async function() {
       axios.request(config).then(res=>console.log("success"))
     }
      }
-
 };
